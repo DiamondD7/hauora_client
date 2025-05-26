@@ -1,0 +1,49 @@
+.faq-container__wrapper{
+    width: 1000px;
+    height: 750px;
+    overflow: auto;
+
+    padding: 10px;
+    margin: auto;
+}
+
+
+.question-btn{
+    margin-top: 30px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+    color: #333;
+    padding: 10px;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+
+}
+
+.question-btn span{
+    background-color: #f0f0f0;
+}
+
+.answer-btn{
+    margin: 10px 0 0 50px;
+    padding: 0 10px;
+    border-left: 2px solid #9dcd5a;    
+    animation: answerDrop 0.3s ease-in-out;
+}
+
+
+@keyframes answerDrop{
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,27 @@
+.about-cards-container__wrapper{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.about-card__wrapper{
+    width: 400px;
+
+    background-color: #d6e8ff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+
+    padding: 30px;
+    text-align: center;
+}
+
+.about-card__wrapper h4{
+    background-color: #d6e8ff;
+}
+.about-card__wrapper p{
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    background-color: #d6e8ff;
+}
+

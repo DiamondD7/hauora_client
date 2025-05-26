@@ -1,0 +1,78 @@
+.landing-hauora-image-container__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.haurora-logo__img{
+    width: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.landing-nav__list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 100px;
+    gap: 50px;
+    list-style-type: none;
+}
+.landing-nav__list li{
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: .5px;
+    font-size: 11px;
+    
+
+    margin-right: 20px;
+    padding: 10px;
+}
+
+.active{
+    color: #9dcd5a;
+    border-bottom: 2px solid #9dcd5a;
+}
+
+.landing-statement__wrapper{
+    padding: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+.landing-statement__wrapper p{
+    margin-top: 20px;
+    line-height: 1.5;
+    width: 500px;
+}
+
+.landing-statement-picture__img{
+    width: 900px;
+}
+
+.landing-statement__form{
+    margin-top: 10px;
+}
+
+.landing-statement__form input{
+    margin-top: 5px;
+
+    width: 250px;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    color: #202020;
+    padding: 5px 10px;
+}
+
+.landing-statement__form button{
+    margin-top: 10px;
+
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #9dcd5a;
+    color: #f3f3f3;
+    padding: 5px 20px;
+    border-radius: 50px;
+}
