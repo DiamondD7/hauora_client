@@ -76,3 +76,41 @@
     padding: 5px 20px;
     border-radius: 50px;
 }
+
+.landing-request-success__wrapper{
+    
+
+    position: absolute;
+    top:0;
+    left: 0;
+
+    text-align: center;
+    background-color: #9dcd5a;
+    
+
+    animation: successAnimation 0.5s ease-in-out;
+    
+    padding: 20px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.landing-request-success__wrapper h3{
+    color: #f3f3f3;
+}
+.landing-request-success__wrapper p{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #f3f3f3;
+}
+
+@keyframes successAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

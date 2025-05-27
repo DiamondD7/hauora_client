@@ -3,9 +3,10 @@ import HauoraLogo from "../assets/img/HauoraLogo.png"; // Adjust the path as nec
 import LandingPicture from "../assets/img/LandingPicture.png"; // Adjust the path as necessary
 import About from "./About";
 import Contact from "./Contact";
+import Faq from "./Faq";
+import emailjs from "@emailjs/browser";
 
 import "../styles/landingstyles.css";
-import Faq from "./Faq";
 const LandingNav = ({ componentRendered, setComponentRendered }) => {
   return (
     <div>
@@ -16,7 +17,6 @@ const LandingNav = ({ componentRendered, setComponentRendered }) => {
         >
           HOME
         </li>
-        <li>SERVICES</li>
         <li
           className={`${componentRendered === "about" ? "active" : ""}`}
           onClick={(e) => setComponentRendered("about")}
@@ -41,7 +41,56 @@ const LandingNav = ({ componentRendered, setComponentRendered }) => {
 };
 
 const Landing = () => {
+  const [showRequestSuccess, setShowRequestSuccess] = useState(false);
   const [componentRendered, setComponentRendered] = useState("landing");
+  const [userParams, setUserParams] = useState({
+    name: "",
+    email: "",
+    message: `HAUORA SUBSCRIPTION INTEREST`,
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const serviceId = import.meta.env.VITE_EMAIL_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
+
+    const templateParams = {
+      from_name: userParams.name,
+      from_email: userParams.email,
+      to_name: "Hauora Team",
+      message: userParams.message,
+    };
+
+    try {
+      emailjs.send(serviceId, templateId, templateParams, publicKey).then(
+        (response) => {
+          console.log("Sent successfully:", response);
+          setShowRequestSuccess(true);
+          setTimeout(() => {
+            setShowRequestSuccess(false);
+          }, 5000); // Hide the success message after 3 seconds
+
+          setUserParams({ name: "", email: "" });
+        },
+        (error) => {
+          console.error("Error sending email:", error);
+          alert(
+            "There was an error sending your subscription. Please try again."
+          );
+        }
+      );
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
+
+  const handleChange = (e) => {
+    setUserParams((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   return (
     <div
@@ -69,6 +118,13 @@ const Landing = () => {
 
       {/* Render the landing statement */}
 
+      {showRequestSuccess && (
+        <div className="landing-request-success__wrapper">
+          <h3>Sent request successful</h3>
+          <p>Thank you for subscribing! We will be in touch soon.</p>
+        </div>
+      )}
+
       {componentRendered === "landing" ? (
         <div className="landing-statement__wrapper">
           <div>
@@ -91,12 +147,24 @@ const Landing = () => {
               records access — 100% online.
             </p>
 
-            <form className="landing-statement__form">
-              <input type="text" placeholder="Name" />
+            <form className="landing-statement__form" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Name"
+                name="name"
+                value={userParams.name}
+                onChange={(e) => handleChange(e)}
+              />
               <br />
-              <input type="text" placeholder="Email" />
+              <input
+                type="text"
+                placeholder="Enter valid email"
+                name="email"
+                value={userParams.email}
+                onChange={(e) => handleChange(e)}
+              />
               <br />
-              <button>Submit</button>
+              <button type="submit">Submit</button>
             </form>
 
             <br />
