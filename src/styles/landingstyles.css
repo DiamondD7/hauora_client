@@ -41,6 +41,9 @@
     display: flex;
     justify-content: space-around;
 }
+.landing-statement__wrapper h1{
+    width: 500px;
+}
 .landing-statement__wrapper p{
     margin-top: 20px;
     line-height: 1.5;

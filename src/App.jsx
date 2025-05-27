@@ -4,7 +4,7 @@ import Landing from "./components/Landing";
 import About from "./components/About";
 
 import "./App.css";
-
+import "./styles/responsiveness.css";
 const App = () => {
   return (
     <div>

@@ -51,6 +51,7 @@ const Landing = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const serviceId = import.meta.env.VITE_EMAIL_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
@@ -69,6 +70,7 @@ const Landing = () => {
           setShowRequestSuccess(true);
           setTimeout(() => {
             setShowRequestSuccess(false);
+            window.location.reload(); // Reload the page after showing success message
           }, 5000); // Hide the success message after 3 seconds
 
           setUserParams({ name: "", email: "" });
@@ -96,6 +98,8 @@ const Landing = () => {
     <div
       style={{
         backgroundColor: "#e5f0ff",
+        height: "100vh",
+        overflowY: "auto",
       }}
     >
       <div className="landing-hauora-image-container__wrapper">
@@ -120,7 +124,7 @@ const Landing = () => {
 
       {showRequestSuccess && (
         <div className="landing-request-success__wrapper">
-          <h3>Sent request successful</h3>
+          <h3>Sent request successful!</h3>
           <p>Thank you for subscribing! We will be in touch soon.</p>
         </div>
       )}
@@ -128,7 +132,7 @@ const Landing = () => {
       {componentRendered === "landing" ? (
         <div className="landing-statement__wrapper">
           <div>
-            <h1 style={{ width: "500px" }}>
+            <h1>
               Join the Future of Telemedicine{" "}
               <span
                 style={{
