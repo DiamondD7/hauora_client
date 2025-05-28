@@ -173,7 +173,7 @@ const Landing = () => {
 
             <br />
             <br />
-            <label
+            {/* <label
               style={{
                 fontSize: "12px",
                 letterSpacing: "1px",
@@ -181,7 +181,7 @@ const Landing = () => {
               }}
             >
               www.mywebsite.co.nz
-            </label>
+            </label> */}
           </div>
 
           <div>
